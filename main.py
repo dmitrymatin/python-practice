@@ -1,16 +1,33 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import this
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def f(a, b, c, x):
+    if x < 0 and b != 0 and validate_first_case(a, b, x):
+        return a - (x / (10 + b))
+    elif x > 0 and b == 0 and validate_second_case(a, c, x):
+        return (x - a) / (x - c)
+    elif validate_third_case(x, c):
+        return 3 * x + (2 / c)
+
+    return 'error'
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def validate_first_case(a, b, x):
+    if 10 + b == 0:
+        return False
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    return True
+
+
+def validate_second_case(a, c, x):
+    if x - c == 0:
+        return False
+
+    return True
+
+
+def validate_third_case(x, c):
+    if c == 0:
+        return False
+
+    return True
