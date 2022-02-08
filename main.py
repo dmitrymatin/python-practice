@@ -85,3 +85,7 @@ def validate_range(start, end):
         raise ValueError('start value should be less than or equal than end value',
                          'start=' + str(start),
                          'end' + str(end))
+
+
+if __name__ == '__main__':
+    main()
