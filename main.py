@@ -3,7 +3,7 @@ def main():
         a = float(input('Input a: '))
         b = float(input('Input b: '))
         c = float(input('Input c: '))
-        
+
         x_start = int(input('Input the start value of x: '))
         x_end = int(input('Input the end value of x: '))
         dx = int(input('Input dx: '))
@@ -15,14 +15,14 @@ def main():
             print(ve)
 
         header = ['x', 'f(x)']
-        print("{:>20} {:>20}".format(*header))
+        print("{:>20} | {:>20}".format(*header))
 
         x = x_start
         while x <= x_end:
             try:
                 f_value = f(a, b, c, x)
                 row = [x, f_value]
-                print("{:>20} {:>20}".format(*row))
+                print("{:>20} | {:>20}".format(*row))
                 x += dx
             except ValueError as ve:
                 print('Invalid params, try new ones')
@@ -42,12 +42,11 @@ def f(a, b, c, x):
         elif x > 0 and b == 0:
             validate_second_case(a, c, x)
             result = (x - a) / (x - c)
-
-        validate_third_case(x, c)
-        result = 3 * x + (2 / c)
+        else:
+            validate_third_case(x, c)
+            result = 3 * x + (2 / c)
     except ArithmeticError as ae:
-        raise ValueError('Function cannot be calculated because of incorrect parameters') \
-            .with_traceback(ae)
+        raise ValueError('Function cannot be calculated because of incorrect parameters')
     return result
 
 
