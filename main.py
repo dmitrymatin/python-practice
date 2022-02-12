@@ -1,21 +1,23 @@
 def main():
     while True:
-        a = float(input('Input a: '))
-        b = float(input('Input b: '))
-        c = float(input('Input c: '))
-
-        x_start = int(input('Input the start value of x: '))
-        x_end = int(input('Input the end value of x: '))
-        dx = int(input('Input dx: '))
-
         try:
+            a = float(input('Input a: '))
+            b = float(input('Input b: '))
+            c = float(input('Input c: '))
+
+            x_start = int(input('Input the start value of x: '))
+            x_end = int(input('Input the end value of x: '))
+            dx = int(input('Input dx: '))
+
             validate_all_numeric(a, b, c, x_start, x_end, dx)
             validate_range(x_start, x_end)
         except ValueError as ve:
-            print(ve)
+            print("Error!", ve)
+            print("Please, try again")
+            continue
 
         header = ['x', 'f(x)']
-        print("{:>20} | {:>20}".format(*header))
+        print("| {:>20} | {:>20} |".format(*header))
 
         x = x_start
         while x <= x_end:
