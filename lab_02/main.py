@@ -13,16 +13,17 @@ def main():
     print()
 
     position = listSize - 1
-    for i in reversed(range(0, len(list))):
+    for i in reversed(range(0, len(list) - 1)):
         item = list[i]
 
-        j = i + 1
+        if item <= 0:
+            j = i + 1
 
-        while j <= listSize - 1 and list[j] > 0:
-            list[j - 1] = list[j]
-            j += 1
-        
-        list[j - 1] = item
+            while j <= listSize - 1 and list[j] > 0:
+                list[j - 1] = list[j]
+                j += 1
+            
+            list[j - 1] = item
 
     for i in list:
         print(i, end = ' ')
