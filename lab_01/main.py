@@ -24,14 +24,14 @@ def main():
             try:
                 f_value = f(a, b, c, x)
                 row = [x, f_value]
-                print("{:>20} | {:>20}".format(*row))
+                print("| {:>20} | {:>20} |".format(*row))
                 x += dx
             except ValueError as ve:
                 print('Invalid params, try new ones')
                 print(ve)
                 break
 
-        message = input('success! wanna quit? press q: ')
+        message = input('Press q to quit: ')
         if message == 'q':
             break
 
