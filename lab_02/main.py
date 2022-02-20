@@ -7,9 +7,8 @@ def main():
     listSize = 10
     list = [randrange(intervalMinimun, intervalMaximum + 1) for _ in range(listSize)]
 
-    for i in list:
-        print(i, end = ' ')
-    print()
+    print('input sequence:')
+    print(' '.join(str(item) for item in list))
 
     for i in reversed(range(0, len(list) - 1)):
         item = list[i]
@@ -25,8 +24,8 @@ def main():
         
         list[j - 1] = item
 
-    for i in list:
-        print(i, end = ' ')
+    print('output sequence:')
+    print(' '.join(str(item) for item in list))
 
 
 if __name__ == "__main__":
