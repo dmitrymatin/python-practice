@@ -27,13 +27,19 @@ def main():
             oldest = age
 
     if youngest == None or oldest == None:
-        print(f"Could not find the youngest ({youngest}) or the oldest ({oldest}) employees eligible for conscription")
+        print(
+            # Не найдены самый младший или старший сотрудник среди военнообязанных
+            f"Could not find the youngest ({youngest}) or the oldest ({oldest}) employees eligible for conscription"
+        )
         return
-    
+
+    # Возраст самого младшего военнообязанного сотрудника
     print(f"Youngest eligible for conscription employee: {youngest}")
+    # Возраст самого старшего военнообязанного сотрудника
     print(f"Oldest eligible for conscription employee: {oldest}")
 
     ageDiff = oldest - youngest
+    # Разница в возрасте между самым младшим и старшим военнообязанными сотрудниками
     print(f"Their age difference: {ageDiff}")
 
     unconscriptedEmployees = {}
@@ -46,11 +52,11 @@ def main():
         for k2 in employees:
             if k1 == k2:
                 continue
-            
+
             if employees[k2]["conscription"] != False:
                 continue
 
-            if k2 in unconscriptedEmployees: # what about .values()?
+            if k2 in unconscriptedEmployees:  # what about .values()?
                 continue
 
             currentAgeDiff = abs(employees[k1]["age"] - employees[k2]["age"])
@@ -61,7 +67,14 @@ def main():
         if not unconscriptedEmployees[k]:
             del unconscriptedEmployees[k]
 
-    print(unconscriptedEmployees)
+    for k1 in unconscriptedEmployees:
+        employee = employees[k1]
+        for matchEmployeeId in unconscriptedEmployees[k1]:
+            matchEmployee = employees[matchEmployeeId]
+
+            # Фамилии людей среди невоеннообязанных и их разница в возрасте
+            print(f"Employee {employee['surname']} and {matchEmployee['surname']} have an age difference {abs(employee['age'] - matchEmployee['age'])}")
+
 
 
 if __name__ == "__main__":
