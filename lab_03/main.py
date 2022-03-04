@@ -34,9 +34,9 @@ def main():
         return
 
     # Возраст самого младшего военнообязанного сотрудника
-    print(f"Youngest eligible for conscription employee: {youngest}")
+    print(f"Youngest eligible for conscription employee age: {youngest}")
     # Возраст самого старшего военнообязанного сотрудника
-    print(f"Oldest eligible for conscription employee: {oldest}")
+    print(f"Oldest eligible for conscription employee age: {oldest}")
 
     ageDiff = oldest - youngest
     # Разница в возрасте между самым младшим и старшим военнообязанными сотрудниками
@@ -67,13 +67,14 @@ def main():
         if not unconscriptedEmployees[k]:
             del unconscriptedEmployees[k]
 
+    print("From uneligible for conscription employees:")
     for k1 in unconscriptedEmployees:
         employee = employees[k1]
         for matchEmployeeId in unconscriptedEmployees[k1]:
             matchEmployee = employees[matchEmployeeId]
 
             # Фамилии людей среди невоеннообязанных и их разница в возрасте
-            print(f"Employee {employee['surname']} and {matchEmployee['surname']} have an age difference {abs(employee['age'] - matchEmployee['age'])}")
+            print(f"\tEmployee {employee['surname']} and {matchEmployee['surname']} have an age difference {abs(employee['age'] - matchEmployee['age'])}")
 
 
 
