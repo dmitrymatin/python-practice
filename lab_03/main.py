@@ -33,7 +33,7 @@ def main():
                 validConscription = True
             except ValueError as ve:
                 print(f"Try again, {ve}")
-                
+
         employees[i] = {
             "surname": surname,
             "name": name,
@@ -185,7 +185,7 @@ def main():
             if employees[k2]["conscription"] != False:
                 continue
 
-            if k2 in unconscriptedEmployees:  # what about .values()?
+            if k2 in unconscriptedEmployees:
                 continue
 
             currentAgeDiff = abs(employees[k1]["age"] - employees[k2]["age"])
@@ -194,7 +194,7 @@ def main():
 
     for k in unconscriptedEmployees.copy():
         if not unconscriptedEmployees[k]:
-            del unconscriptedEmployees[k]
+            del unconscriptedEmployees[k] # TODO: move in the loop above
 
     print("From uneligible for conscription employees:")
     for k1 in unconscriptedEmployees:
