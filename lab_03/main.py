@@ -1,17 +1,116 @@
 def main():
-    employee_count = 4 #16
-    employees = {}
-    for i in range(employee_count):
-        surname = input("surname: ")  # TODO: validate
-        name = input("name: ")
-        age = int(input("age: "))  # TODO: validate
-        conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
-        employees[i] = {
-            "surname": surname,
-            "name": name,
-            "age": age,
-            "conscription": conscription,
-        }
+    employee_count = 4  # 16
+    # employees = {}
+    # for i in range(employee_count):
+    #     surname = input("surname: ")  # TODO: validate
+    #     name = input("name: ")
+    #     age = int(input("age: "))  # TODO: validate
+    #     conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
+    #     employees[i] = {
+    #         "surname": surname,
+    #         "name": name,
+    #         "age": age,
+    #         "conscription": conscription,
+    #     }
+
+    employees = {
+        1: {
+            "surname": "Смирнов",
+            "name": "Иван",
+            "age": 28,
+            "conscription": 0,
+        },
+        2: {
+            "surname": "Иванов",
+            "name": "Петр",
+            "age": 21,
+            "conscription": 1,
+        },
+        3: {
+            "surname": "Кузнецов",
+            "name": "Сергей",
+            "age": 18,
+            "conscription": 1,
+        },
+        4: {
+            "surname": "Соколов",
+            "name": "Василий",
+            "age": 31,
+            "conscription": 0,
+        },
+        5: {
+            "surname": "Попов",
+            "name": "Петр",
+            "age": 18,
+            "conscription": 0,
+        },
+        6: {
+            "surname": "Лебедев",
+            "name": "Иван",
+            "age": 24,
+            "conscription": 1,
+        },
+        7: {
+            "surname": "Козлов",
+            "name": "Сергей",
+            "age": 19,
+            "conscription": 0,
+        },
+        8: {
+            "surname": "Новиков",
+            "name": "Василий",
+            "age": 39,
+            "conscription": 1,
+        },
+        9: {
+            "surname": "Морозов",
+            "name": "Иван",
+            "age": 23,
+            "conscription": 0,
+        },
+        10: {
+            "surname": "Петров",
+            "name": "Петр",
+            "age": 19,
+            "conscription": 1,
+        },
+        11: {
+            "surname": "Волков",
+            "name": "Александр",
+            "age": 27,
+            "conscription": 0,
+        },
+        12: {
+            "surname": "Соловьев",
+            "name": "Сергей",
+            "age": 60,
+            "conscription": 0,
+        },
+        13: {
+            "surname": "Васильев",
+            "name": "Иван",
+            "age": 24,
+            "conscription": 1,
+        },
+        14: {
+            "surname": "Зайцев",
+            "name": "Петр",
+            "age": 39,
+            "conscription": 0,
+        },
+        15: {
+            "surname": "Павлов",
+            "name": "Сергей",
+            "age": 21,
+            "conscription": 0,
+        },
+        16: {
+            "surname": "Семёнов",
+            "name": "Василий",
+            "age": 31,
+            "conscription": 1,
+        },
+    }
 
     youngest = None
     oldest = None
