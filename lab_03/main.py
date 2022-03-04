@@ -1,11 +1,39 @@
 def main():
-    employee_count = 4  # 16
+    employee_count = 16
     employees = {}
     for i in range(employee_count):
-        surname = input("surname: ")  # TODO: validate
-        name = input("name: ")
-        age = int(input("age: "))  # TODO: validate
-        conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
+        surname = ""
+        validSurname = False
+        while not validSurname:
+            surname = input("surname: ")
+            if len(surname) <= 16:
+                validSurname = True
+        
+        name = ""
+        validName = False
+        while not validName:
+            name = input("name: ")
+            if len(name) <= 12:
+                validName = True
+
+        age = int()
+        validAge = False
+        while not validAge:
+            try:
+                age = int(input("age: "))
+                validAge = True
+            except ValueError as ve:
+                print(f"Try again, {ve}")
+
+        conscription = bool()
+        validConscription = False
+        while not validConscription:
+            try:
+                conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
+                validConscription = True
+            except ValueError as ve:
+                print(f"Try again, {ve}")
+                
         employees[i] = {
             "surname": surname,
             "name": name,
