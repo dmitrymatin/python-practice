@@ -24,13 +24,13 @@ def main():
             "surname": "Иванов",
             "name": "Петр",
             "age": 20,
-            "conscription": 1,
+            "conscription": 0,
         },
         3: {
             "surname": "Кузнецов",
             "name": "Сергей",
             "age": 21,
-            "conscription": 1,
+            "conscription": 0,
         },
         4: {
             "surname": "Соколов",
@@ -48,7 +48,7 @@ def main():
             "surname": "Лебедев",
             "name": "Иван",
             "age": 18,
-            "conscription": 1,
+            "conscription": 0,
         },
         7: {
             "surname": "Козлов",
@@ -174,7 +174,6 @@ def main():
 
             # Фамилии людей среди невоеннообязанных и их разница в возрасте
             print(f"\tEmployee {employee['surname']} and {matchEmployee['surname']} have an age difference {abs(employee['age'] - matchEmployee['age'])}")
-
 
 
 if __name__ == "__main__":
