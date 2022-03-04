@@ -1,18 +1,19 @@
 def main():
     employee_count = 4  # 16
-    # employees = {}
-    # for i in range(employee_count):
-    #     surname = input("surname: ")  # TODO: validate
-    #     name = input("name: ")
-    #     age = int(input("age: "))  # TODO: validate
-    #     conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
-    #     employees[i] = {
-    #         "surname": surname,
-    #         "name": name,
-    #         "age": age,
-    #         "conscription": conscription,
-    #     }
+    employees = {}
+    for i in range(employee_count):
+        surname = input("surname: ")  # TODO: validate
+        name = input("name: ")
+        age = int(input("age: "))  # TODO: validate
+        conscription = bool(int(input("eligible for conscription: (0 for No, 1 for Yes) ")))
+        employees[i] = {
+            "surname": surname,
+            "name": name,
+            "age": age,
+            "conscription": conscription,
+        }
 
+    ''' Test code
     employees = {
         1: {
             "surname": "Смирнов",
@@ -111,6 +112,7 @@ def main():
             "conscription": 0,
         },
     }
+    '''
 
     youngest = None
     oldest = None
