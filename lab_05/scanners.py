@@ -8,7 +8,7 @@ def main():
         scanners.append(
             {
                 "name": f"scanner{i * 10}",
-                "price": (i ^ 1) << 1,
+                "price": (i ^ 1) << 1, # позволяет задать неотсортированную последовательность чисел
                 "horizontal_surface_scan_size": 297,
                 "vertical_surface_scan_size": 216,
                 "optical_horizontal_resolution": 600,
@@ -21,11 +21,16 @@ def main():
         print(s)
 
     save_scanners(scanners)
+    sorted_scanners = sort_scanners()
 
-    print("after writing")
-    scanners = read_scanners()
-    for s in scanners:
+    for s in sorted_scanners:
         print(s)
+
+
+def sort_scanners():
+    scanners = read_scanners()
+    scanners.sort(key=lambda scanner: scanner['price'])
+    return scanners
 
 
 def save_scanners(scanners):
