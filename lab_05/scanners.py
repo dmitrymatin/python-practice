@@ -21,58 +21,79 @@ def main():
         print(s)
 
     save_scanners(scanners)
+
     print("after writing")
     scanners = read_scanners()
+    for s in scanners:
+        print(s)
 
 
 def save_scanners(scanners):
+    numeric_field_length = 2
+
     with open(file="data.bin", mode="wb") as file:
         scanners_num = len(scanners)
         scanners_num = scanners_num.to_bytes(
-            length=2, byteorder=byteorder, signed=False
+            length=numeric_field_length, byteorder=byteorder, signed=False
         )
-        for scanner in scanners:
-            file.write(scanners_num)
+        file.write(scanners_num)
 
+        for scanner in scanners:
             name = str(scanner["name"]).encode(encoding="utf-8", errors="strict")
+            name_length = len(name)
+            name_length = name_length.to_bytes(
+                length=numeric_field_length, byteorder=byteorder, signed=False
+            )
+
+            file.write(name_length)
             file.write(name)
 
-            for fieldKey in scanner:
-                if fieldKey == "name":
+            for field_key in scanner:
+                if field_key == "name":
                     continue
 
-                fieldValue = int(scanner[fieldKey]).to_bytes(
-                    length=2, byteorder=byteorder, signed=False
+                fieldValue = int(scanner[field_key]).to_bytes(
+                    length=numeric_field_length, byteorder=byteorder, signed=False
                 )
                 file.write(fieldValue)
 
 
 def read_scanners():
+    scanner_equal_length_fields = (
+        "price",
+        "horizontal_surface_scan_size",
+        "vertical_surface_scan_size",
+        "optical_horizontal_resolution",
+        "optical_vertical_resolution",
+        "greyscale",
+    )
+
+    numeric_field_length = 2
+    scanners = []
+
     with open(file="data.bin", mode="rb") as file:
-        scanners_num_ = file.read(2)
+        scanners_num = file.read(numeric_field_length)
         scanners_num = int.from_bytes(scanners_num, byteorder=byteorder, signed=False)
-'''
 
-        scanners_num = len(scanners)
-        scanners_num = scanners_num.to_bytes(
-            length=2, byteorder=byteorder, signed=False
-        )
-        for scanner in scanners:
-            file.write(scanners_num)
+        for _ in range(scanners_num):
+            name_length = file.read(numeric_field_length)
+            name_length = int.from_bytes(name_length, byteorder=byteorder, signed=False)
 
-            name = scanner["name"].to_bytes(length=2, byteorder=byteorder, signed=False)
-            file.write(name)
+            name = file.read(name_length)
+            name = name.decode(encoding="utf-8", errors="strict")
 
-            for fieldKey in scanner:
-                if fieldKey == "name":
-                    continue
-
-                fieldValue = scanner[fieldKey].to_bytes(
-                    length=2, byteorder=byteorder, signed=False
+            scanner_dict = {"name": name}
+            for field_key in scanner_equal_length_fields:
+                field_value = file.read(numeric_field_length)
+                field_value = int.from_bytes(
+                    field_value, byteorder=byteorder, signed=False
                 )
-                file.write(fieldValue)
-                
-'''
+
+                scanner_dict[field_key] = field_value
+
+            scanners.append(scanner_dict)
+
+    return scanners
 
 
 if __name__ == "__main__":
