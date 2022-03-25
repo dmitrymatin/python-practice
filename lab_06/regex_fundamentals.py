@@ -3,7 +3,7 @@ import re
 
 def main():
     p = re.compile("#?[A-F0-9]{6}")
-    m = p.findall("AA00AB")
+    m = p.findall("B63")
     print(m)
 
 
