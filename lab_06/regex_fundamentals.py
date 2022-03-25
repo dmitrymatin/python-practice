@@ -2,8 +2,8 @@ import re
 
 
 def main():
-    p = re.compile("#?[A-F0-9]+")
-    m = p.findall("AA00")
+    p = re.compile("#?[A-F0-9]{6}")
+    m = p.findall("AA00AB")
     print(m)
 
 
