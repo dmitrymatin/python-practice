@@ -2,7 +2,7 @@ import re
 
 
 def main():
-    p = re.compile("#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})")
+    p = re.compile("#?([A-F0-9]{6}|[A-F0-9]{3})", re.I)
     m = p.findall("#b63")
     print(m)
 
