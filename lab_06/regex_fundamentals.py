@@ -2,7 +2,7 @@ import re
 
 
 def main():
-    p = re.compile("^#?([A-F0-9]{6}|[A-F0-9]{3})$", re.I)
+    p = re.compile("^[\t\n\f\r]*#?([A-F0-9]{6}|[A-F0-9]{3})[\t\n\f\r]*$", re.I)
     print(p.findall("#b63"))
     print(p.findall("  #aBCd84  ")) # should match even with whitespace
     print(p.findall("3F")) # no match
