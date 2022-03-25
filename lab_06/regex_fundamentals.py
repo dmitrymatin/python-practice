@@ -2,8 +2,8 @@ import re
 
 
 def main():
-    p = re.compile("#?([A-F0-9]{6}|[A-F0-9]{3})")
-    m = p.findall("#B63")
+    p = re.compile("#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})")
+    m = p.findall("#b63")
     print(m)
 
     p = re.compile(r'\d+')
