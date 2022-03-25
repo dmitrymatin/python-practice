@@ -2,7 +2,7 @@ import re
 
 
 def main():
-    p = re.compile("#[ABCDEF01234567890]+")
+    p = re.compile("#[A-F0-9]+")
     m = p.findall("#AA00FF")
     print(m)
 
