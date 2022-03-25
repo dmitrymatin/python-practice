@@ -3,12 +3,13 @@ import re
 
 def main():
     p = re.compile("#?([A-F0-9]{6}|[A-F0-9]{3})", re.I)
-    m = p.findall("#b63")
-    print(m)
-
-    p = re.compile(r'\d+')
-    m = p.findall('12 drummers drumming, 11 pipers piping, 10 lords a-leaping')
-    print(m)
+    print(p.findall("#b63"))
+    print(p.findall("3F")) # no match
+    print(p.findall("blue")) # no match
+    print(p.findall("xYz87k")) # no match
+    print(p.findall("test # ab12587")) # matches found
+    print(p.findall("#ABCDEF123456 test")) # matches found
+    print(p.findall("<script style=\"color: #005599;\"> ... </script>")) # matches found
 
 
 if __name__ == "__main__":
