@@ -20,6 +20,8 @@ def main():
     for s in scanners:
         print(s)
 
+    print()
+
     save_scanners(scanners)
     sorted_scanners = sort_scanners()
 
