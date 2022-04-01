@@ -7,11 +7,21 @@ def main():
         contents = file.read(1000000)
         print(len(contents))
     
-    pattern = re.compile(r"(XYZ)+(XYZ|XY|X)")
-    results = pattern.findall(contents)
-    longest = max(results, key=len)
+    test = "XYZXYZXYXXXYYXXYZXXYXZYX"
 
-    print(longest)
+    pattern = re.compile(r"((XYZ)+(XYZ|XY|X))", re.M)
+    results = pattern.findall(contents)
+
+
+    max_match = 0
+    for res in results:
+        for match in res:
+            match_length = len(match)
+            if match_length > max_match:
+                max_match = match_length
+
+    print(max_match)
+
 
 if __name__ == "__main__":
     main()
